@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIColor {
-    convenience init(hex: String) {
+public extension UIColor {
+    public convenience init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         
         var int = UInt32()

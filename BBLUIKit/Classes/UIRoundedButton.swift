@@ -8,15 +8,15 @@
 
 import UIKit
 
-class UIRoundedButton: UIButton {
-    @IBInspectable var cornerRadius: CGFloat = 5 {
+public class UIRoundedButton: UIButton {
+    @IBInspectable public var cornerRadius: CGFloat = 5 {
         didSet {
             layer.cornerRadius = cornerRadius
             layer.masksToBounds = cornerRadius > 0
         }
     }
     
-    override var isEnabled: Bool {
+    override public var isEnabled: Bool {
         didSet {
             self.alpha = isEnabled ? 1.0 : 0.5
         }
