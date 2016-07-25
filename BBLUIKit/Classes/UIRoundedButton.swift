@@ -16,9 +16,9 @@ class UIRoundedButton: UIButton {
         }
     }
     
-    override var enabled: Bool {
+    override var isEnabled: Bool {
         didSet {
-            self.alpha = enabled ? 1.0 : 0.5
+            self.alpha = isEnabled ? 1.0 : 0.5
         }
     }
 }
