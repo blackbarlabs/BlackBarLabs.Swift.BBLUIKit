@@ -9,16 +9,16 @@
 
 import UIKit
 
-protocol SegueHandler {
+public protocol SegueHandler {
     associatedtype SegueIdentifier: RawRepresentable
 }
 
-extension SegueHandler where Self: UIViewController, SegueIdentifier.RawValue == String {
+public extension SegueHandler where Self: UIViewController, SegueIdentifier.RawValue == String {
     func performSegueWithIdentifier(segueIdentifier: SegueIdentifier, sender: AnyObject?) {
         performSegueWithIdentifier(segueIdentifier.rawValue, sender: sender)
     }
     
-    func segueIdentifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
+    public func segueIdentifierForSegue(segue: UIStoryboardSegue) -> SegueIdentifier {
         guard let identifier = segue.identifier, let segueIdentifier = SegueIdentifier(rawValue: identifier) else {
             fatalError("Invalid segue identifier \(segue.identifier).") }
         return segueIdentifier

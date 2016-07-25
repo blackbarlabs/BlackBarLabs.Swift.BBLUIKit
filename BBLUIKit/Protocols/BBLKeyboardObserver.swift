@@ -8,24 +8,24 @@
 
 import UIKit
 
-@objc protocol BBLKeyboardObserver: class {
+@objc public protocol BBLKeyboardObserver: class {
     @objc func keyboardFrameWillChange(notification: NSNotification)
     var keyboardFocusedView: UIView? { get set }
 }
 
-extension BBLKeyboardObserver {
+public extension BBLKeyboardObserver {
     
     // MARK: - Setup/Teardown
-    func setupKeyboardObserver() {
+    public func setupKeyboardObserver() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardFrameWillChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
-    func teardownKeyboardObserver() {
+    public func teardownKeyboardObserver() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     // MARK: - Adjust
-    func adjustTableView(tableView: UITableView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
+    public func adjustTableView(tableView: UITableView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
         guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() else { return }
         
         let convertedFrame = tableView.window!.convertRect(keyboardFrame, toView: tableView)
@@ -52,7 +52,7 @@ extension BBLKeyboardObserver {
         }
     }
     
-    func adjustScrollView(scrollView: UIScrollView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
+    public func adjustScrollView(scrollView: UIScrollView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
         guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() else { return }
         
         let convertedFrame = scrollView.window!.convertRect(keyboardFrame, toView: scrollView)

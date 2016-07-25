@@ -8,19 +8,19 @@
 
 import UIKit
 
-class UIBorderedView: UIView {
-    @IBInspectable var cornerRadius: CGFloat = 0 {
+public class UIBorderedView: UIView {
+    @IBInspectable public var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
             layer.masksToBounds = cornerRadius > 0
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
+    @IBInspectable public var borderWidth: CGFloat = 0 {
         didSet { layer.borderWidth = borderWidth }
     }
     
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         didSet { layer.borderColor = borderColor?.CGColor }
     }
 }
