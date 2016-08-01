@@ -32,7 +32,7 @@ public extension BBLKeyboardObserver {
         let actualHeight = contentHeight(tableView)
         
         // Test keyboard visible
-        if keyboardFrame.minY < UIScreen.main().bounds.height {
+        if keyboardFrame.minY < UIScreen.main.bounds.height {
             let heightToAdd = tableView.bounds.maxY - convertedFrame.minY
             let newContentSize = CGSize(width: tableView.contentSize.width, height: actualHeight + heightToAdd)
             tableView.contentSize = newContentSize
@@ -59,7 +59,7 @@ public extension BBLKeyboardObserver {
         let actualHeight = contentHeight(scrollView)
         
         // Test keyboard visible
-        if keyboardFrame.minY < UIScreen.main().bounds.height {
+        if keyboardFrame.minY < UIScreen.main.bounds.height {
             let heightToAdd = scrollView.bounds.maxY - convertedFrame.minY
             let newContentSize = CGSize(width: scrollView.contentSize.width, height: actualHeight + heightToAdd)
             scrollView.contentSize = newContentSize
