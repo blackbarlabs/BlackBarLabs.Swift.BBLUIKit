@@ -26,7 +26,8 @@ public extension BBLKeyboardObserver {
     
     // MARK: - Adjust
     public func adjustTableView(_ tableView: UITableView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
-        guard let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
+        guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = frameInfo.cgRectValue
         
         let convertedFrame = tableView.window!.convert(keyboardFrame, to: tableView)
         let actualHeight = contentHeight(tableView)
@@ -43,8 +44,8 @@ public extension BBLKeyboardObserver {
         if let offset = contentOffsetToClearKeyboard(keyboardFrame, scrollView: tableView, focusedView: keyboardFocusedView, margin: margin) {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
-                UIView.setAnimationDuration(duration)
+            if let durationKey = (info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) {
+                UIView.setAnimationDuration(durationKey.doubleValue)
             }
             
             tableView.setContentOffset(offset, animated: false)
@@ -53,7 +54,8 @@ public extension BBLKeyboardObserver {
     }
     
     public func adjustScrollView(_ scrollView: UIScrollView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
-        guard let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
+        guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = frameInfo.cgRectValue
         
         let convertedFrame = scrollView.window!.convert(keyboardFrame, to: scrollView)
         let actualHeight = contentHeight(scrollView)
@@ -68,20 +70,19 @@ public extension BBLKeyboardObserver {
             
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
-                UIView.setAnimationDuration(duration)
+            if let durationKey = (info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) {
+                UIView.setAnimationDuration(durationKey.doubleValue)
             }
             
             scrollView.setContentOffset(CGPoint.zero, animated: false)
             UIView.commitAnimations()
-            
         }
         
         if let offset = contentOffsetToClearKeyboard(keyboardFrame, scrollView: scrollView, focusedView: keyboardFocusedView, margin: margin) {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
-                UIView.setAnimationDuration(duration)
+            if let durationKey = (info[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber) {
+                UIView.setAnimationDuration(durationKey.doubleValue)
             }
             
             scrollView.setContentOffset(offset, animated: false)
