@@ -25,8 +25,8 @@ public extension BBLKeyboardObserver {
     }
     
     // MARK: - Adjust
-    public func adjustTableView(_ tableView: UITableView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
-        guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.cgRectValue else { return }
+    public func adjustTableView(_ tableView: UITableView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
+        guard let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
         
         let convertedFrame = tableView.window!.convert(keyboardFrame, to: tableView)
         let actualHeight = contentHeight(tableView)
@@ -43,7 +43,7 @@ public extension BBLKeyboardObserver {
         if let offset = contentOffsetToClearKeyboard(keyboardFrame, scrollView: tableView, focusedView: keyboardFocusedView, margin: margin) {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
                 UIView.setAnimationDuration(duration)
             }
             
@@ -52,8 +52,8 @@ public extension BBLKeyboardObserver {
         }
     }
     
-    public func adjustScrollView(_ scrollView: UIScrollView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
-        guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.cgRectValue else { return }
+    public func adjustScrollView(_ scrollView: UIScrollView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
+        guard let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue else { return }
         
         let convertedFrame = scrollView.window!.convert(keyboardFrame, to: scrollView)
         let actualHeight = contentHeight(scrollView)
@@ -68,7 +68,7 @@ public extension BBLKeyboardObserver {
             
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
                 UIView.setAnimationDuration(duration)
             }
             
@@ -80,7 +80,7 @@ public extension BBLKeyboardObserver {
         if let offset = contentOffsetToClearKeyboard(keyboardFrame, scrollView: scrollView, focusedView: keyboardFocusedView, margin: margin) {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            if let duration = info[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue {
+            if let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue {
                 UIView.setAnimationDuration(duration)
             }
             

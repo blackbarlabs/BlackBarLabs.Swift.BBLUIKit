@@ -58,11 +58,11 @@
 		5DCF039E1D464DD600517EC3 /* BBLUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				5DCF03A11D464DD600517EC3 /* Info.plist */,
+				5DCF039F1D464DD600517EC3 /* BBLUIKit.h */,
 				5DCF03A91D464DFA00517EC3 /* Protocols */,
 				5DCF03A81D464DF400517EC3 /* Classes */,
 				5DCF03A71D464DEC00517EC3 /* Extensions */,
-				5DCF039F1D464DD600517EC3 /* BBLUIKit.h */,
-				5DCF03A11D464DD600517EC3 /* Info.plist */,
 			);
 			path = BBLUIKit;
 			sourceTree = "<group>";
