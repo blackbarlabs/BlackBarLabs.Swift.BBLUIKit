@@ -41,7 +41,8 @@ public protocol BBLNodeDataSource: class {
     associatedtype Model: BBLNodeViewModel
     var dataArray: [Model] { get set }
     var displayArray: [Model] { get set }
-    func fetchChildren(_ parent: Model?, callback: @escaping () -> Void)
+    var fetchChildrenCallback: ((Model?) -> Void)? { get set }
+    func fetchChildren(_ parent: Model?)
 }
 
 public extension BBLNodeDataSource {
@@ -58,7 +59,7 @@ public extension BBLNodeDataSource {
         let paths: [IndexPath] = model.descendants.filter({ $0.parent?.isExpanded ?? false }).enumerated().map { (offset, model) in
             let i = indexPath.row + offset + 1
             displayArray.insert(model, at: i)
-            if model.children == nil { self.fetchChildren(model) {} }
+            if model.children == nil { self.fetchChildren(model) }
             return IndexPath(row: i, section: 0)
         }
         callback(paths)
