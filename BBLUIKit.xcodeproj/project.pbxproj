@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4088FE1DAC81FB008BF403 /* BBLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4088FD1DAC81FB008BF403 /* BBLNode.swift */; };
 		5DCF03A01D464DD600517EC3 /* BBLUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCF039F1D464DD600517EC3 /* BBLUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */; };
 		5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D4088FD1DAC81FB008BF403 /* BBLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLNode.swift; path = Protocols/BBLNode.swift; sourceTree = "<group>"; };
 		5DCF039C1D464DD600517EC3 /* BBLUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BBLUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCF039F1D464DD600517EC3 /* BBLUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBLUIKit.h; sourceTree = "<group>"; };
 		5DCF03A11D464DD600517EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */,
+				5D4088FD1DAC81FB008BF403 /* BBLNode.swift */,
 				5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */,
 			);
 			name = Protocols;
@@ -178,6 +181,7 @@
 				5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */,
 				5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */,
 				5DCF03B11D464E8300517EC3 /* UIRoundedButton.swift in Sources */,
+				5D4088FE1DAC81FB008BF403 /* BBLNode.swift in Sources */,
 				5DCF03B51D464E9100517EC3 /* UIView.swift in Sources */,
 				5DCF03B41D464E9100517EC3 /* UIColor.swift in Sources */,
 			);
