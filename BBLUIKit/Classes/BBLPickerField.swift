@@ -40,12 +40,12 @@ open class BBLPickerField: UITextField {
     }
     
     @objc private func donePressed() {
+        resignFirstResponder()
         let selected = picker.selectedRow(inComponent: 0)
         if selected >= 0 && selected < pickerData().count {
             text = pickerData()[selected]
             endEditing(text)
         }
-        resignFirstResponder()
     }
 }
 
@@ -64,8 +64,8 @@ extension BBLPickerField: UITextFieldDelegate {
     }
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        endEditing(nil)
         resignFirstResponder()
+        endEditing(nil)
         return true
     }
 }
@@ -78,7 +78,7 @@ extension BBLPickerField: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if row > pickerData().count { return "" }
+        if row >= pickerData().count { return nil }
         return pickerData()[row]
     }
 }

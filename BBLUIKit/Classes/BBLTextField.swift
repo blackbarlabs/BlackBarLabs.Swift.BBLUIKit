@@ -20,14 +20,14 @@ open class BBLTextField: UITextField {
 
 extension BBLTextField: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        endEditing(text)
         resignFirstResponder()
+        endEditing(text)
         return true
     }
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        endEditing(nil)
         resignFirstResponder()
+        endEditing(nil)
         return true
     }
 }
