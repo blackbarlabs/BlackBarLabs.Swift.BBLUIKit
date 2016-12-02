@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D4088FE1DAC81FB008BF403 /* BBLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4088FD1DAC81FB008BF403 /* BBLNode.swift */; };
 		5D55AAAB1DCB9FD7002A2234 /* BBLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */; };
 		5D55AAAD1DCB9FEE002A2234 /* BBLPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */; };
+		5DAEAA7F1DF1E47100A4FA0F /* BBLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */; };
 		5DCF03A01D464DD600517EC3 /* BBLUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCF039F1D464DD600517EC3 /* BBLUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */; };
 		5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */; };
@@ -20,9 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5D4088FD1DAC81FB008BF403 /* BBLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLNode.swift; path = Protocols/BBLNode.swift; sourceTree = "<group>"; };
 		5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLTextField.swift; path = Classes/BBLTextField.swift; sourceTree = "<group>"; };
 		5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLPickerField.swift; path = Classes/BBLPickerField.swift; sourceTree = "<group>"; };
+		5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLNode.swift; path = Classes/BBLNode.swift; sourceTree = "<group>"; };
 		5DCF039C1D464DD600517EC3 /* BBLUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BBLUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCF039F1D464DD600517EC3 /* BBLUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBLUIKit.h; sourceTree = "<group>"; };
 		5DCF03A11D464DD600517EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +85,7 @@
 		5DCF03A81D464DF400517EC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */,
 				5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */,
 				5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */,
 				5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */,
@@ -97,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */,
-				5D4088FD1DAC81FB008BF403 /* BBLNode.swift */,
 				5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */,
 			);
 			name = Protocols;
@@ -187,7 +187,7 @@
 				5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */,
 				5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */,
 				5DCF03B11D464E8300517EC3 /* UIRoundedButton.swift in Sources */,
-				5D4088FE1DAC81FB008BF403 /* BBLNode.swift in Sources */,
+				5DAEAA7F1DF1E47100A4FA0F /* BBLNode.swift in Sources */,
 				5DCF03B51D464E9100517EC3 /* UIView.swift in Sources */,
 				5D55AAAB1DCB9FD7002A2234 /* BBLTextField.swift in Sources */,
 				5D55AAAD1DCB9FEE002A2234 /* BBLPickerField.swift in Sources */,
