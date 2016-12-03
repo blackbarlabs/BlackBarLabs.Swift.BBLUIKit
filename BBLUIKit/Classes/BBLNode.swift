@@ -21,8 +21,9 @@ open class BBLNodeViewModel: NSObject {
     
     public var level: Int = 0
     public var isExpanded: Bool = false
+    public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
     
-    open var canBeExpanded: Bool {
+    public var canBeExpanded: Bool {
         get {
             if children == nil { return false }
             return children!.count > 0
@@ -40,14 +41,20 @@ open class BBLNodeViewModel: NSObject {
             return result
         }
     }
+    
+    open func cell(forTableView tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }
 
 // MARK: -
 open class BBLNodeDataSource {
     public var dataArray = [BBLNodeViewModel]()
     public var displayArray =  [BBLNodeViewModel]()
-    public var fetchChildrenCallback: ((BBLNodeViewModel?) -> Void)?
-    open func fetchChildren(_ parent: BBLNodeViewModel?) { }
+    
+    public var fetchChildren: ((BBLNodeViewModel?, BBLNodeDataSource) -> Void)?
+    public var fetchCompletion: ((BBLNodeViewModel?) -> Void)?
+    public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
     
     public var itemCount: Int {
         get { return displayArray.count }
@@ -64,7 +71,7 @@ open class BBLNodeDataSource {
         let paths: [IndexPath] = model.descendants.filter({ $0.parent?.isExpanded ?? false }).enumerated().map { (offset, model) in
             let i = indexPath.row + offset + 1
             displayArray.insert(model, at: i)
-            if model.children == nil { self.fetchChildren(model) }
+            if model.children == nil { self.fetchChildren?(model, self) }
             return IndexPath(row: i, section: 0)
         }
         callback(paths)
