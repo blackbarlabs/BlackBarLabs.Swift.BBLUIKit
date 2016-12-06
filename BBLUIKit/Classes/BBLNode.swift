@@ -9,6 +9,8 @@
 import UIKit
 
 open class BBLNodeViewModel: NSObject {
+    public var identifier: UUID!
+    
     public weak var parent: BBLNodeViewModel?
     public var children: [BBLNodeViewModel]? {
         didSet {
