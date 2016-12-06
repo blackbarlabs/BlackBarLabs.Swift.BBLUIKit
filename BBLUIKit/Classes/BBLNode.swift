@@ -21,6 +21,7 @@ open class BBLNodeViewModel: NSObject {
     
     public var level: Int = 0
     public var isExpanded: Bool = false
+    public var isSelected: Bool = false
     public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
     
     public var canBeExpanded: Bool {
