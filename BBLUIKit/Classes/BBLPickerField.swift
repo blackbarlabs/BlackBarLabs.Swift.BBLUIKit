@@ -56,7 +56,7 @@ extension BBLPickerField: UITextFieldDelegate {
         if let t = text, let selected = pickerData().index(of: t) {
             picker.selectRow(selected, inComponent: 0, animated: true)
         } else {
-            if pickerData().count > 0 {
+            if !pickerData().isEmpty {
                 picker.selectRow(0, inComponent: 0, animated: true)
             }
         }

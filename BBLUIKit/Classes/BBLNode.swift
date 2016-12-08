@@ -29,7 +29,7 @@ open class BBLNodeViewModel: NSObject {
     public var canBeExpanded: Bool {
         get {
             if children == nil { return false }
-            return children!.count > 0
+            return !children!.isEmpty
         }
     }
     
