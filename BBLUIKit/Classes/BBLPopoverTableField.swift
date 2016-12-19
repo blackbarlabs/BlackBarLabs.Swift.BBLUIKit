@@ -14,20 +14,22 @@ open class BBLPopoverTableField: UITextField {
     public var popoverSize = CGSize(width: 0.0, height: 0.0)
     public var tableData: () -> [String]
     
-    fileprivate lazy var tableViewController: UITableViewController = {
-        let t = UITableViewController(style: .plain)
-        t.modalPresentationStyle = .popover
-        t.preferredContentSize = self.popoverSize
-        
-        t.tableView.dataSource = self
-        t.tableView.delegate = self
-        
-        t.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PopTableCell")
-        t.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-        t.tableView.showsVerticalScrollIndicator = true
-        
-        return t
-    }()
+    fileprivate var tableViewController: UITableViewController {
+        get {
+            let t = UITableViewController(style: .plain)
+            t.modalPresentationStyle = .popover
+            t.preferredContentSize = CGSize(width: self.popoverSize.width, height: 1.0)
+            
+            t.tableView.dataSource = self
+            t.tableView.delegate = self
+            
+            t.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PopTableCell")
+            t.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+            t.tableView.showsVerticalScrollIndicator = true
+            
+            return t
+        }
+    }
     
     required public init?(coder aDecoder: NSCoder) {
         endEditing = { _ in }
@@ -44,12 +46,20 @@ extension BBLPopoverTableField: UITextFieldDelegate {
         let pop = tvc.popoverPresentationController
         pop?.sourceView = self
         pop?.sourceRect = self.bounds
+        pop?.permittedArrowDirections = .up
         
         parentViewController?.present(tvc, animated: true) {
             var size = tvc.preferredContentSize
             size.height = min(self.popoverSize.height, tvc.tableView.contentSize.height)
             tvc.preferredContentSize = size
         }
+        return true
+    }
+    
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        endEditing(nil)
+        parentViewController?.dismiss(animated: true, completion: nil)
+        resignFirstResponder()
         return true
     }
 }
@@ -70,10 +80,10 @@ extension BBLPopoverTableField: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        resignFirstResponder()
         text = tableData()[indexPath.row]
         endEditing(tableData()[indexPath.row])
         parentViewController?.dismiss(animated: true, completion: nil)
+        resignFirstResponder()
     }
 }
 
