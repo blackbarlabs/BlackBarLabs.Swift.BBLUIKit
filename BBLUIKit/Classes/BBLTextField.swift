@@ -10,6 +10,7 @@ import UIKit
 
 open class BBLTextField: UITextField {
     public var endEditing: (String?) -> Void
+    public var validateInput: ((String) -> Bool)?
     
     required public init?(coder aDecoder: NSCoder) {
         endEditing = { _ in }
@@ -19,6 +20,10 @@ open class BBLTextField: UITextField {
 }
 
 extension BBLTextField: UITextFieldDelegate {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return validateInput?(string) ?? true
+    }
+
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
         endEditing(text)
