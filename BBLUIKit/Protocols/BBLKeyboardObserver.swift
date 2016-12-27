@@ -17,11 +17,13 @@ public extension BBLKeyboardObserver {
     
     // MARK: - Setup/Teardown
     public func setupKeyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameWillChange(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameWillChange(_:)),
+                                               name: Notification.Name.UIKeyboardWillChangeFrame,
+                                               object: nil)
     }
     
     public func teardownKeyboardObserver() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     // MARK: - Adjust
