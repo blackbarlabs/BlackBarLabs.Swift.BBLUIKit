@@ -59,9 +59,7 @@ open class BBLNodeDataSource {
     public var fetchCompletion: ((BBLNodeViewModel?) -> Void)?
     public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
     
-    public var itemCount: Int {
-        get { return displayArray.count }
-    }
+    public var itemCount: Int { return displayArray.count }
     
     public init() {}
     

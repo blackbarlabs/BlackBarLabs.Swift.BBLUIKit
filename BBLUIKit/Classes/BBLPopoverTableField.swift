@@ -15,20 +15,18 @@ open class BBLPopoverTableField: UITextField {
     public var tableData: () -> [String]
     
     fileprivate var tableViewController: UITableViewController {
-        get {
-            let t = UITableViewController(style: .plain)
-            t.modalPresentationStyle = .popover
-            t.preferredContentSize = CGSize(width: self.popoverSize.width, height: 1.0)
-            
-            t.tableView.dataSource = self
-            t.tableView.delegate = self
-            
-            t.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PopTableCell")
-            t.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
-            t.tableView.showsVerticalScrollIndicator = true
-            
-            return t
-        }
+        let t = UITableViewController(style: .plain)
+        t.modalPresentationStyle = .popover
+        t.preferredContentSize = CGSize(width: self.popoverSize.width, height: 1.0)
+        
+        t.tableView.dataSource = self
+        t.tableView.delegate = self
+        
+        t.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PopTableCell")
+        t.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+        t.tableView.showsVerticalScrollIndicator = true
+        
+        return t
     }
     
     required public init?(coder aDecoder: NSCoder) {
