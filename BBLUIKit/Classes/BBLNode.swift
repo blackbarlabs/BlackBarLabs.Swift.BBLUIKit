@@ -8,8 +8,12 @@
 
 import UIKit
 
-open class BBLNodeViewModel: NSObject {
-    public var identifier: UUID!
+open class BBLNodeViewModel: Equatable {
+    public var identifier: String
+    
+    public init(identifier: String) {
+        self.identifier = identifier
+    }
     
     public weak var parent: BBLNodeViewModel?
     public var children: [BBLNodeViewModel]? {
@@ -47,6 +51,10 @@ open class BBLNodeViewModel: NSObject {
     
     open func cell(forTableView tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+    public static func == (lhs: BBLNodeViewModel, rhs: BBLNodeViewModel) -> Bool {
+        return lhs.identifier == rhs.identifier
     }
 }
 
