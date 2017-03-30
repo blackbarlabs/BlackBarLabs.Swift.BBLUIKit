@@ -10,10 +10,14 @@ import UIKit
 
 public extension UIColor {
     public convenience init(hex: String) {
+<<<<<<< HEAD
         let hex = hex.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+=======
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+>>>>>>> Swift_3.0
         
         var int = UInt32()
-        NSScanner(string: hex).scanHexInt(&int)
+        Scanner(string: hex).scanHexInt32(&int)
         let a, r, g, b: UInt32
         
         switch hex.characters.count {

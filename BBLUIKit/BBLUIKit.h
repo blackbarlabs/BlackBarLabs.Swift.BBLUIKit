@@ -6,6 +6,7 @@
 //  Copyright © 2016 Joel Perry. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 //! Project version number for BBLUIKit.

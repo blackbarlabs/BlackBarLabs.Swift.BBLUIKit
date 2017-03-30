@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D55AAAB1DCB9FD7002A2234 /* BBLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */; };
+		5D55AAAD1DCB9FEE002A2234 /* BBLPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */; };
+		5DA072E71E0655450088BC67 /* BBLPopoverTableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */; };
+		5DAEAA7F1DF1E47100A4FA0F /* BBLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */; };
 		5DCF03A01D464DD600517EC3 /* BBLUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCF039F1D464DD600517EC3 /* BBLUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */; };
 		5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLTextField.swift; path = Classes/BBLTextField.swift; sourceTree = "<group>"; };
+		5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLPickerField.swift; path = Classes/BBLPickerField.swift; sourceTree = "<group>"; };
+		5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLPopoverTableField.swift; path = Classes/BBLPopoverTableField.swift; sourceTree = "<group>"; };
+		5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLNode.swift; path = Classes/BBLNode.swift; sourceTree = "<group>"; };
 		5DCF039C1D464DD600517EC3 /* BBLUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BBLUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCF039F1D464DD600517EC3 /* BBLUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBLUIKit.h; sourceTree = "<group>"; };
 		5DCF03A11D464DD600517EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,11 +66,11 @@
 		5DCF039E1D464DD600517EC3 /* BBLUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				5DCF03A11D464DD600517EC3 /* Info.plist */,
+				5DCF039F1D464DD600517EC3 /* BBLUIKit.h */,
 				5DCF03A91D464DFA00517EC3 /* Protocols */,
 				5DCF03A81D464DF400517EC3 /* Classes */,
 				5DCF03A71D464DEC00517EC3 /* Extensions */,
-				5DCF039F1D464DD600517EC3 /* BBLUIKit.h */,
-				5DCF03A11D464DD600517EC3 /* Info.plist */,
 			);
 			path = BBLUIKit;
 			sourceTree = "<group>";
@@ -79,6 +87,10 @@
 		5DCF03A81D464DF400517EC3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5DAEAA7E1DF1E47100A4FA0F /* BBLNode.swift */,
+				5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */,
+				5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */,
+				5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */,
 				5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */,
 				5DCF03AF1D464E8300517EC3 /* UIRoundedButton.swift */,
 			);
@@ -132,11 +144,13 @@
 		5DCF03931D464DD600517EC3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Joel Perry";
 				TargetAttributes = {
 					5DCF039B1D464DD600517EC3 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -176,7 +190,11 @@
 				5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */,
 				5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */,
 				5DCF03B11D464E8300517EC3 /* UIRoundedButton.swift in Sources */,
+				5DAEAA7F1DF1E47100A4FA0F /* BBLNode.swift in Sources */,
 				5DCF03B51D464E9100517EC3 /* UIView.swift in Sources */,
+				5D55AAAB1DCB9FD7002A2234 /* BBLTextField.swift in Sources */,
+				5D55AAAD1DCB9FEE002A2234 /* BBLPickerField.swift in Sources */,
+				5DA072E71E0655450088BC67 /* BBLPopoverTableField.swift in Sources */,
 				5DCF03B41D464E9100517EC3 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,8 +216,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -247,8 +267,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -279,6 +301,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -290,6 +314,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -297,6 +322,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -307,6 +334,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blackbarlabs.BBLUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -329,6 +358,7 @@
 				5DCF03A61D464DD600517EC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
