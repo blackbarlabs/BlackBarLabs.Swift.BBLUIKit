@@ -9,11 +9,7 @@
 import UIKit
 
 public extension UIView {
-<<<<<<< HEAD
-    public func rotate180Degrees(duration: CFTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
-=======
     public func rotate180Degrees(_ duration: CFTimeInterval = 1.0, completionDelegate: CAAnimationDelegate? = nil) {
->>>>>>> Swift_3.0
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0
         rotateAnimation.toValue = CGFloat.pi

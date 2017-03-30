@@ -9,11 +9,7 @@
 import UIKit
 
 @objc public protocol BBLKeyboardObserver: class {
-<<<<<<< HEAD
-    @objc func keyboardFrameWillChange(notification: NSNotification)
-=======
     @objc func keyboardFrameWillChange(_ notification: Notification)
->>>>>>> Swift_3.0
     var keyboardFocusedView: UIView? { get set }
 }
 
@@ -21,18 +17,6 @@ public extension BBLKeyboardObserver {
     
     // MARK: - Setup/Teardown
     public func setupKeyboardObserver() {
-<<<<<<< HEAD
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardFrameWillChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    public func teardownKeyboardObserver() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    // MARK: - Adjust
-    public func adjustTableView(tableView: UITableView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
-        guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() else { return }
-=======
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameWillChange(_:)),
                                                name: Notification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
@@ -46,7 +30,6 @@ public extension BBLKeyboardObserver {
     public func adjustTableView(_ tableView: UITableView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
         guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = frameInfo.cgRectValue
->>>>>>> Swift_3.0
         
         let convertedFrame = tableView.window!.convert(keyboardFrame, to: tableView)
         let actualHeight = contentHeight(tableView)
@@ -72,14 +55,9 @@ public extension BBLKeyboardObserver {
         }
     }
     
-<<<<<<< HEAD
-    public func adjustScrollView(scrollView: UIScrollView, forKeyboardInfo info: [NSObject : AnyObject], margin: CGFloat) {
-        guard let keyboardFrame = info[UIKeyboardFrameEndUserInfoKey]?.CGRectValue() else { return }
-=======
     public func adjustScrollView(_ scrollView: UIScrollView, forKeyboardInfo info: [AnyHashable : Any], margin: CGFloat) {
         guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = frameInfo.cgRectValue
->>>>>>> Swift_3.0
         
         let convertedFrame = scrollView.window!.convert(keyboardFrame, to: scrollView)
         let actualHeight = contentHeight(scrollView)
