@@ -9,7 +9,19 @@
 import UIKit
 
 open class UIRoundedButton: UIButton {
-    @IBInspectable open var cornerRadius: CGFloat = 5 {
+    @IBInspectable open var borderColor: UIColor? {
+        didSet {
+            layer.borderColor = borderColor?.cgColor
+        }
+    }
+    
+    @IBInspectable open var borderWidth: CGFloat = 0.0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable open var cornerRadius: CGFloat = 5.0 {
         didSet {
             layer.cornerRadius = cornerRadius
             layer.masksToBounds = cornerRadius > 0
@@ -18,7 +30,7 @@ open class UIRoundedButton: UIButton {
     
     override open var isEnabled: Bool {
         didSet {
-            self.alpha = isEnabled ? 1.0 : 0.5
+            alpha = isEnabled ? 1.0 : 0.5
         }
     }
 }
