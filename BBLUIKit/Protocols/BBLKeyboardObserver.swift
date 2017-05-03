@@ -109,12 +109,8 @@ public extension BBLKeyboardObserver {
     }
     
     private func contentHeight(_ tableView: UITableView) -> CGFloat {
-        var height: CGFloat = 0.0
-        for i in 0..<tableView.numberOfSections {
-            height += tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: i))
-            height += tableView.sectionHeaderHeight
-        }
-        return height
+        let index = tableView.numberOfSections - 1
+        return tableView.rect(forSection: index).maxY
     }
     
     private func contentHeight(_ scrollView: UIScrollView) -> CGFloat {
