@@ -9,8 +9,10 @@
 import UIKit
 
 @objc public protocol BBLKeyboardObserver: class {
-    @objc func keyboardFrameWillChange(_ notification: Notification)
     var keyboardFocusedView: UIView? { get set }
+    @objc optional func keyboardFrameWillChange(_ notification: Notification)
+    @objc optional func keyboardWillShow(_ notification: Notification)
+    @objc optional func keyboardWillHide(_ notification: Notification)
 }
 
 public extension BBLKeyboardObserver {
@@ -20,10 +22,22 @@ public extension BBLKeyboardObserver {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameWillChange(_:)),
                                                name: Notification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
+                                               name: Notification.Name.UIKeyboardWillShow,
+                                               object: nil)
+
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
+                                               name: Notification.Name.UIKeyboardWillHide,
+                                               object: nil)
+
     }
     
     public func teardownKeyboardObserver() {
         NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // MARK: - Adjust
