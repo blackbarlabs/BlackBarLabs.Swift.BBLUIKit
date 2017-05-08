@@ -10,7 +10,6 @@ import UIKit
 
 @objc public protocol BBLKeyboardObserver: class {
     var keyboardFocusedView: UIView? { get set }
-    @objc optional func keyboardFrameWillChange(_ notification: Notification)
     @objc optional func keyboardWillShow(_ notification: Notification)
     @objc optional func keyboardWillHide(_ notification: Notification)
 }
@@ -19,10 +18,6 @@ public extension BBLKeyboardObserver {
     
     // MARK: - Setup/Teardown
     public func setupKeyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameWillChange(_:)),
-                                               name: Notification.Name.UIKeyboardWillChangeFrame,
-                                               object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
                                                name: Notification.Name.UIKeyboardWillShow,
                                                object: nil)
@@ -35,9 +30,17 @@ public extension BBLKeyboardObserver {
     }
     
     public func teardownKeyboardObserver() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    
+    public func verticalOverlap(forKeyboardInfo info: [AnyHashable : Any], scrollView: UIScrollView) -> CGFloat {
+        guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return 0.0 }
+        
+        let keyboardFrame = frameInfo.cgRectValue
+        let convertedFrame = scrollView.window!.convert(keyboardFrame, to: scrollView)
+        return scrollView.bounds.maxY - convertedFrame.minY
     }
     
     // MARK: - Adjust
