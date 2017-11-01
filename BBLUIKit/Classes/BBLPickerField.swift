@@ -12,7 +12,7 @@ open class BBLPickerField: UITextField {
     public var pickerData: () -> [String]
     public var endEditing: (String?) -> Void
     
-    fileprivate lazy var picker: UIPickerView = {
+    private lazy var picker: UIPickerView = {
         let p = UIPickerView()
         let toolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: p.frame.width, height: 44.0))
         toolbar.barStyle = .default

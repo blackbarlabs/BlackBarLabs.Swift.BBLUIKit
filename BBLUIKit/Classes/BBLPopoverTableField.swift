@@ -14,7 +14,7 @@ open class BBLPopoverTableField: UITextField {
     public var popoverSize = CGSize(width: 0.0, height: 0.0)
     public var tableData: () -> [String]
     
-    fileprivate var tableViewController: UITableViewController {
+    private var tableViewController: UITableViewController {
         let t = UITableViewController(style: .plain)
         t.modalPresentationStyle = .popover
         t.preferredContentSize = CGSize(width: self.popoverSize.width, height: 1.0)
