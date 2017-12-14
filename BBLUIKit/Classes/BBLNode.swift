@@ -9,9 +9,9 @@
 import UIKit
 
 open class BBLNodeViewModel: Equatable {
-    public var identifier: String
+    public var identifier: UUID
     
-    public init(identifier: String) {
+    public init(identifier: UUID) {
         self.identifier = identifier
     }
     
@@ -27,25 +27,25 @@ open class BBLNodeViewModel: Equatable {
     
     public var level: Int = 0
     public var isExpanded: Bool = false
-    public var isSelected: Bool = false
-    public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
+    public var fetchChildren: (() -> Void)?
     
     public var canBeExpanded: Bool {
         get {
-            if children == nil { return false }
-            return !children!.isEmpty
+            switch children {
+            case .none:
+                return false
+                
+            case .some(let c):
+                return !c.isEmpty
+            }
         }
     }
     
     public var descendants: [BBLNodeViewModel] {
         get {
-            var result = [BBLNodeViewModel]()
-            guard let c = self.children else { return result }
-            c.forEach {
-                result.append($0)
-                result += $0.descendants
-            }
-            return result
+            return children?.reduce([BBLNodeViewModel](), { (result, model) -> [BBLNodeViewModel] in
+                return result + [ model ] + model.descendants
+            }) ?? []
         }
     }
     
@@ -59,49 +59,66 @@ open class BBLNodeViewModel: Equatable {
 }
 
 // MARK: -
-open class BBLNodeDataSource {
-    public var dataArray = [BBLNodeViewModel]()
-    public var displayArray =  [BBLNodeViewModel]()
-    
-    public var fetchChildren: ((BBLNodeViewModel?, BBLNodeDataSource) -> Void)?
-    public var fetchCompletion: ((BBLNodeViewModel?) -> Void)?
-    public var toggleDisclosure: ((BBLNodeViewModel) -> Void)?
-    
-    public var itemCount: Int { return displayArray.count }
-    
-    public init() {}
+public protocol BBLNodeViewDataSource: class {
+    var viewModelDidChange: ((IndexPath) -> Void)? { get set }
+    var viewModelDidExpand: ((IndexPath, [IndexPath]) -> Void)? { get set }
+    var viewModelDidCollapse: ((IndexPath, [IndexPath]) -> Void)? { get set }
+    var viewModels: [BBLNodeViewModel] { get set }
+}
+
+public extension BBLNodeViewDataSource {
+    public var itemCount: Int { return viewModels.count }
     
     public func modelAtIndexPath(_ indexPath: IndexPath) -> BBLNodeViewModel {
-        return displayArray[indexPath.row]
+        return viewModels[indexPath.row]
     }
     
-    public func expandCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath, callback: @escaping ([IndexPath]) -> Void) {
+    public func indexPathForModel(_ model: BBLNodeViewModel) -> IndexPath? {
+        guard let row = viewModels.index(where: { $0 == model }) else { return nil }
+        return IndexPath(row: row, section: 0)
+    }
+    
+    public func toggleDisclosure(atIndexPath indexPath: IndexPath) {
+        let model = modelAtIndexPath(indexPath)
+        
+        if model.canBeExpanded {
+            if model.isExpanded {
+                collapseCellsForModel(model, atIndexPath: indexPath) { [weak self] (paths) in
+                    self?.viewModelDidCollapse?(indexPath, paths)
+                }
+            } else {
+                expandCellsForModel(model, atIndexPath: indexPath) { [weak self] (paths) in
+                    self?.viewModelDidExpand?(indexPath, paths)
+                }
+            }
+        }
+    }
+    
+    // MARK: Private
+    private func expandCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
+                                     callback: @escaping ([IndexPath]) -> Void) {
         model.isExpanded = true
         let paths: [IndexPath] = model.descendants.filter({ $0.parent?.isExpanded ?? false }).enumerated().map { (offset, model) in
             let i = indexPath.row + offset + 1
-            displayArray.insert(model, at: i)
-            if model.children == nil { self.fetchChildren?(model, self) }
+            viewModels.insert(model, at: i)
+            if model.children == nil { model.fetchChildren?() }
             return IndexPath(row: i, section: 0)
         }
         callback(paths)
     }
     
-    public func collapseCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath, callback: @escaping ([IndexPath]) -> Void) {
+    private func collapseCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
+                                       callback: @escaping ([IndexPath]) -> Void) {
         let collapseRange = rangeToCollapse(model: model, indexPath: indexPath)
-        displayArray.removeSubrange(collapseRange)
+        viewModels.removeSubrange(collapseRange)
         model.isExpanded = false
         let paths = collapseRange.map { IndexPath(row: $0, section: 0) }
         callback(paths)
     }
     
-    public func indexPathForModel(_ model: BBLNodeViewModel) -> IndexPath? {
-        guard let row = displayArray.index(where: { $0 == model }) else { return nil }
-        return IndexPath(row: row, section: 0)
-    }
-    
     private func rangeToCollapse(model: BBLNodeViewModel, indexPath: IndexPath) -> CountableRange<Int> {
         var endIndex = indexPath.row + 1
-        while endIndex < displayArray.count && displayArray[endIndex].level > model.level { endIndex += 1 }
+        while endIndex < viewModels.count && viewModels[endIndex].level > model.level { endIndex += 1 }
         return (indexPath.row + 1)..<endIndex
     }
 }
