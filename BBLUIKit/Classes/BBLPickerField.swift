@@ -11,11 +11,13 @@ import UIKit
 open class BBLPickerField: UITextField {
     public var pickerData: () -> [String]
     public var endEditing: (String?) -> Void
+    public var toolbarTintColor: UIColor = .black
     
     private lazy var picker: UIPickerView = {
         let p = UIPickerView()
         let toolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: p.frame.width, height: 44.0))
         toolbar.barStyle = .default
+        toolbar.tintColor = toolbarTintColor
         
         let cancel = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
