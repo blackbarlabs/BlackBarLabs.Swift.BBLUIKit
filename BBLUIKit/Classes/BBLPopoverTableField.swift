@@ -56,7 +56,7 @@ extension BBLPopoverTableField: UITextFieldDelegate {
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         endEditing(nil)
-        parentViewController?.dismiss(animated: true, completion: nil)
+        parentViewController?.dismiss(animated: true)
         resignFirstResponder()
         return true
     }
@@ -80,7 +80,7 @@ extension BBLPopoverTableField: UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         text = tableData()[indexPath.row]
         endEditing(tableData()[indexPath.row])
-        parentViewController?.dismiss(animated: true, completion: nil)
+        parentViewController?.dismiss(animated: true)
         resignFirstResponder()
     }
 }
