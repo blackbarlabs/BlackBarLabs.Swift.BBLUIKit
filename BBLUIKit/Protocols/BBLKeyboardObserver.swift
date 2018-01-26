@@ -9,7 +9,7 @@
 import UIKit
 
 @objc public protocol BBLKeyboardObserver: class {
-    weak var keyboardFocusedView: UIView? { get set }
+    var keyboardFocusedView: UIView? { get set }
     @objc optional func keyboardWillShow(_ notification: Notification)
     @objc optional func keyboardWillHide(_ notification: Notification)
 }
