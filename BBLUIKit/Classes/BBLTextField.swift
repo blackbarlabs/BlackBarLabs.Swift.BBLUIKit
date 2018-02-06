@@ -32,7 +32,8 @@ extension BBLTextField: UITextFieldDelegate {
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resignFirstResponder()
+        textField.text = nil
         endEditing(nil)
-        return true
+        return false
     }
 }

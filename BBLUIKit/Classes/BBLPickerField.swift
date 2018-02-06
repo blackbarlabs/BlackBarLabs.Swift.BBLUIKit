@@ -53,7 +53,6 @@ open class BBLPickerField: UITextField {
 
 extension BBLPickerField: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
         inputView = picker
         if let t = text, let selected = pickerData().index(of: t) {
             picker.selectRow(selected, inComponent: 0, animated: true)
@@ -67,8 +66,9 @@ extension BBLPickerField: UITextFieldDelegate {
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resignFirstResponder()
+        textField.text = nil
         endEditing(nil)
-        return true
+        return false
     }
 }
 
