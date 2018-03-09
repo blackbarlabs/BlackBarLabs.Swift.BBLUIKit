@@ -9,11 +9,10 @@
 import UIKit
 
 open class BBLTextField: UITextField {
-    public var endEditing: (String?) -> Void
+    public var endEditing: ((String?) -> Void)?
     public var validateInput: ((String) -> Bool)?
     
     required public init?(coder aDecoder: NSCoder) {
-        endEditing = { _ in }
         super.init(coder: aDecoder)
         delegate = self
     }
@@ -26,14 +25,14 @@ extension BBLTextField: UITextFieldDelegate {
 
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignFirstResponder()
-        endEditing(text)
+        endEditing?(text)
         return true
     }
     
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resignFirstResponder()
         textField.text = nil
-        endEditing(nil)
+        endEditing?(nil)
         return false
     }
 }

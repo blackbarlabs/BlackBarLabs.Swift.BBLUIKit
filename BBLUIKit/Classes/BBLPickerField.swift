@@ -10,7 +10,7 @@ import UIKit
 
 open class BBLPickerField: UITextField {
     public var pickerData: () -> [String]
-    public var endEditing: (String?) -> Void
+    public var endEditing: ((String?) -> Void)?
     public var toolbarTintColor: UIColor = .black
     
     private lazy var picker: UIPickerView = {
@@ -31,7 +31,6 @@ open class BBLPickerField: UITextField {
     }()
     
     required public init?(coder aDecoder: NSCoder) {
-        endEditing = { _ in }
         pickerData = { return [String]() }
         super.init(coder: aDecoder)
         delegate = self
@@ -46,7 +45,7 @@ open class BBLPickerField: UITextField {
         let selected = picker.selectedRow(inComponent: 0)
         if selected >= 0 && selected < pickerData().count {
             text = pickerData()[selected]
-            endEditing(text)
+            endEditing?(text)
         }
     }
 }
@@ -67,7 +66,7 @@ extension BBLPickerField: UITextFieldDelegate {
     public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         resignFirstResponder()
         textField.text = nil
-        endEditing(nil)
+        endEditing?(nil)
         return false
     }
 }
