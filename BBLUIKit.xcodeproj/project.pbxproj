@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D074F5B207C109800043212 /* BBLSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D074F5A207C109800043212 /* BBLSearchBar.swift */; };
 		5D55AAAB1DCB9FD7002A2234 /* BBLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */; };
 		5D55AAAD1DCB9FEE002A2234 /* BBLPickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */; };
 		5DA072E71E0655450088BC67 /* BBLPopoverTableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D074F5A207C109800043212 /* BBLSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BBLSearchBar.swift; path = Classes/BBLSearchBar.swift; sourceTree = "<group>"; };
 		5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLTextField.swift; path = Classes/BBLTextField.swift; sourceTree = "<group>"; };
 		5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLPickerField.swift; path = Classes/BBLPickerField.swift; sourceTree = "<group>"; };
 		5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLPopoverTableField.swift; path = Classes/BBLPopoverTableField.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				5DA072E61E0655450088BC67 /* BBLPopoverTableField.swift */,
 				5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */,
 				5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */,
+				5D074F5A207C109800043212 /* BBLSearchBar.swift */,
 				5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */,
 				5DCF03AF1D464E8300517EC3 /* UIRoundedButton.swift */,
 			);
@@ -188,6 +191,7 @@
 			files = (
 				5DCF03B01D464E8300517EC3 /* UIBorderedView.swift in Sources */,
 				5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */,
+				5D074F5B207C109800043212 /* BBLSearchBar.swift in Sources */,
 				5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */,
 				5DCF03B11D464E8300517EC3 /* UIRoundedButton.swift in Sources */,
 				5DAEAA7F1DF1E47100A4FA0F /* BBLNode.swift in Sources */,
@@ -355,7 +359,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.blackbarlabs.BBLUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
