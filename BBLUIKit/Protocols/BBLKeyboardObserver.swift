@@ -34,13 +34,12 @@ public extension BBLKeyboardObserver {
         NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    
-    public func verticalOverlap(forKeyboardInfo info: [AnyHashable : Any], scrollView: UIScrollView) -> CGFloat {
+    public func verticalOverlap(forKeyboardInfo info: [AnyHashable : Any], view: UIView) -> CGFloat {
         guard let frameInfo = info[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return 0.0 }
         
         let keyboardFrame = frameInfo.cgRectValue
-        let convertedFrame = scrollView.window!.convert(keyboardFrame, to: scrollView)
-        return scrollView.bounds.maxY - convertedFrame.minY
+        let convertedFrame = view.window!.convert(keyboardFrame, to: view)
+        return view.bounds.maxY - convertedFrame.minY
     }
     
     // MARK: - Adjust
