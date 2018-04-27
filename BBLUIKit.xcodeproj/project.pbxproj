@@ -15,7 +15,7 @@
 		5DCF03A01D464DD600517EC3 /* BBLUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DCF039F1D464DD600517EC3 /* BBLUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */; };
 		5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */; };
-		5DCF03B01D464E8300517EC3 /* UIBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */; };
+		5DCF03B01D464E8300517EC3 /* UIRoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AE1D464E8300517EC3 /* UIRoundedView.swift */; };
 		5DCF03B11D464E8300517EC3 /* UIRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03AF1D464E8300517EC3 /* UIRoundedButton.swift */; };
 		5DCF03B41D464E9100517EC3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03B21D464E9100517EC3 /* UIColor.swift */; };
 		5DCF03B51D464E9100517EC3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF03B31D464E9100517EC3 /* UIView.swift */; };
@@ -32,7 +32,7 @@
 		5DCF03A11D464DD600517EC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DCF03AA1D464E7600517EC3 /* BBLKeyboardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BBLKeyboardObserver.swift; path = Protocols/BBLKeyboardObserver.swift; sourceTree = "<group>"; };
 		5DCF03AB1D464E7600517EC3 /* SegueHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegueHandler.swift; path = Protocols/SegueHandler.swift; sourceTree = "<group>"; };
-		5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBorderedView.swift; path = Classes/UIBorderedView.swift; sourceTree = "<group>"; };
+		5DCF03AE1D464E8300517EC3 /* UIRoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIRoundedView.swift; path = Classes/UIRoundedView.swift; sourceTree = "<group>"; };
 		5DCF03AF1D464E8300517EC3 /* UIRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIRoundedButton.swift; path = Classes/UIRoundedButton.swift; sourceTree = "<group>"; };
 		5DCF03B21D464E9100517EC3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Extensions/UIColor.swift; sourceTree = "<group>"; };
 		5DCF03B31D464E9100517EC3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				5D55AAAC1DCB9FEE002A2234 /* BBLPickerField.swift */,
 				5D55AAAA1DCB9FD7002A2234 /* BBLTextField.swift */,
 				5D074F5A207C109800043212 /* BBLSearchBar.swift */,
-				5DCF03AE1D464E8300517EC3 /* UIBorderedView.swift */,
+				5DCF03AE1D464E8300517EC3 /* UIRoundedView.swift */,
 				5DCF03AF1D464E8300517EC3 /* UIRoundedButton.swift */,
 			);
 			name = Classes;
@@ -189,7 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DCF03B01D464E8300517EC3 /* UIBorderedView.swift in Sources */,
+				5DCF03B01D464E8300517EC3 /* UIRoundedView.swift in Sources */,
 				5DCF03AD1D464E7600517EC3 /* SegueHandler.swift in Sources */,
 				5D074F5B207C109800043212 /* BBLSearchBar.swift in Sources */,
 				5DCF03AC1D464E7600517EC3 /* BBLKeyboardObserver.swift in Sources */,

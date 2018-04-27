@@ -1,5 +1,5 @@
 //
-//  UIBorderedView.swift
+//  UIRoundedView.swift
 //  BBLUIKit
 //
 //  Created by Joel Perry on 5/26/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class UIBorderedView: UIView {
+open class UIRoundedView: UIView {
     @IBInspectable open var cornerRadius: CGFloat = 0 {
         didSet {
             layer.cornerRadius = cornerRadius
