@@ -19,19 +19,15 @@ public extension BBLKeyboardObserver {
     // MARK: - Setup/Teardown
     public func setupKeyboardObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)),
-                                               name: Notification.Name.UIKeyboardWillShow,
-                                               object: nil)
-
+                                               name: .UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)),
-                                               name: Notification.Name.UIKeyboardWillHide,
-                                               object: nil)
-
+                                               name: .UIKeyboardWillHide, object: nil)
     }
     
     public func teardownKeyboardObserver() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
     public func verticalOverlap(forKeyboardInfo info: [AnyHashable : Any], view: UIView) -> CGFloat {
