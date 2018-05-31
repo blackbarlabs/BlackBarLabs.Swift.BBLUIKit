@@ -95,7 +95,7 @@ public extension BBLNodeViewDataSource {
     }
     
     // MARK: Private
-    private func expandCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
+    public func expandCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
                                      callback: @escaping ([IndexPath]) -> Void) {
         model.isExpanded = true
         let paths: [IndexPath] = model.descendants.filter({ $0.parent?.isExpanded ?? false }).enumerated().map { (offset, model) in
@@ -107,7 +107,7 @@ public extension BBLNodeViewDataSource {
         callback(paths)
     }
     
-    private func collapseCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
+    public func collapseCellsForModel(_ model: BBLNodeViewModel, atIndexPath indexPath: IndexPath,
                                        callback: @escaping ([IndexPath]) -> Void) {
         let collapseRange = rangeToCollapse(model: model, indexPath: indexPath)
         viewModels.removeSubrange(collapseRange)
@@ -116,7 +116,7 @@ public extension BBLNodeViewDataSource {
         callback(paths)
     }
     
-    private func rangeToCollapse(model: BBLNodeViewModel, indexPath: IndexPath) -> CountableRange<Int> {
+    public func rangeToCollapse(model: BBLNodeViewModel, indexPath: IndexPath) -> CountableRange<Int> {
         var endIndex = indexPath.row + 1
         while endIndex < viewModels.count && viewModels[endIndex].level > model.level { endIndex += 1 }
         return (indexPath.row + 1)..<endIndex
