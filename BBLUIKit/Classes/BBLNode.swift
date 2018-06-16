@@ -9,10 +9,10 @@
 import UIKit
 
 open class BBLNodeViewModel: Equatable {
-    public var identifier: String
+    public var nodeId: String
     
-    public init(identifier: String) {
-        self.identifier = identifier
+    public init(nodeId: String) {
+        self.nodeId = nodeId
     }
     
     public weak var parent: BBLNodeViewModel?
@@ -54,7 +54,7 @@ open class BBLNodeViewModel: Equatable {
     }
     
     public static func == (lhs: BBLNodeViewModel, rhs: BBLNodeViewModel) -> Bool {
-        return lhs.identifier == rhs.identifier
+        return lhs.nodeId == rhs.nodeId
     }
 }
 
