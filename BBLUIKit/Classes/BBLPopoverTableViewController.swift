@@ -19,11 +19,11 @@ open class BBLPopoverTableViewController: UIViewController {
     // MARK: - Initialization
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        if UIDevice.current.userInterfaceIdiom == .pad {
+//        if UIDevice.current.userInterfaceIdiom == .pad {
             modalPresentationStyle = .popover
             popoverPresentationController?.delegate = self
             popoverPresentationController?.backgroundColor = .white
-        }
+//        }
     }
     
     override open func viewDidLoad() {
@@ -75,6 +75,10 @@ extension BBLPopoverTableViewController: UIPopoverPresentationControllerDelegate
         navItem.rightBarButtonItems = nil
         navBarHeightConstraint.constant = 0.0
         navBar.isHidden = true
+    }
+    
+    open func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 
