@@ -3,7 +3,7 @@
 //  BBLUIKit
 //
 //  Created by Joel Perry on 7/19/16.
-//  Copyright © 2016 East Five. All rights reserved.
+//  Copyright © 2018 East Five. All rights reserved.
 //
 
 import UIKit
